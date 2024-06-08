@@ -1,4 +1,4 @@
-const Product = require('./models/prod.model.js');
+const Product = require('../models/prod.model.js');
 
 const getProducts = async (req, res) => {
 	try {
@@ -57,5 +57,5 @@ module.exports = {
 	getProduct,
 	addProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
 };

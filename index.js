@@ -6,8 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-
-app.use('/api/products', productRoute )
+app.use('/api/products', productRoute);
 app.get('/', (req, res) => {
 	res.send('Hello From Node Server!');
 });
@@ -17,7 +16,7 @@ mongoose
 		'mongodb+srv://spietersma:root@silverdb.tl6gmsu.mongodb.net/Node-API?retryWrites=true&w=majority&appName=SILVERDB'
 	)
 	.then(() => {
-		console.log('Connected to MongoDB');
+		console.log('Connected to MongoDB or something');
 		app.listen(3000, () => {
 			console.log('Example app listening on port 3000!');
 		});
