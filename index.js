@@ -24,14 +24,28 @@ app.post('/api/products', async (req, res) => {
 app.put('/api/product/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
-		const product = await Product.findByIdAndUpdate(id, req.body); //Could add new = true to update
+		const product = await Product.findByIdAndUpdate(id, req.body); //Could add new = true to update, apparently
 		if (!product) return res.status(404).json({ message: 'Product not found' });
 
+        // Good to do it this way to ensure product has been updated successfully!
         const updatedProduct = await Product.findById(id);
 		res.status(200).json(updatedProduct);
 	} catch (err) {
 		res.status(500).json({ message: err.message });
 	}
+});
+
+// Delete Product (FATALITY)
+
+app.delete('/api/product/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const product = await Product.findByIdAndDelete(id);
+        if (!product) return res.status(404).json({ message: 'Product not found' });
+        res.status(200).json(product);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 });
 
 //Get Product(s)
