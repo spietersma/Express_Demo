@@ -16,9 +16,9 @@ mongoose
 		'mongodb+srv://spietersma:root@silverdb.tl6gmsu.mongodb.net/Node-API?retryWrites=true&w=majority&appName=SILVERDB'
 	)
 	.then(() => {
-		console.log('Connected to MongoDB or something');
+		console.log('Connected to MongoDB');
 		app.listen(3000, () => {
-			console.log('Example app listening on port 3000!');
+			console.log('Woo its running on port 3000! :-) ');
 		});
 	})
 	.catch((err) => {
